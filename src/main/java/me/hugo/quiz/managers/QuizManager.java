@@ -15,7 +15,7 @@ import java.util.*;
 
 public class QuizManager {
 
-    private Map<UUID, Quiz> quizzes = new HashMap<>();;
+    private List<Quiz> quizzes = new ArrayList<>();
     private Random random;
 
     private QuizEvent currentQuizEvent;
@@ -37,22 +37,13 @@ public class QuizManager {
                 quizAnswers.add(new Answer(answer, answers.get(correct - 1).equals(answer)));
             }
 
-            createQuiz(
-                    new Quiz(
-                            config.getString("quizzes." + quiz + ".question"),
-                            quizAnswers,
-                            config.getInt("quizzes." + quiz + ".reward")));
+            quizzes.add(new Quiz(
+                    config.getString("quizzes." + quiz + ".question"),
+                    quizAnswers,
+                    config.getInt("quizzes." + quiz + ".reward")));
         }
 
         System.out.println(quizzes.size() + " quizzes were loaded!");
-    }
-
-    public void createQuiz(Quiz quiz) {
-        quizzes.put(UUID.randomUUID(), quiz);
-    }
-
-    public Quiz get(UUID uuid) {
-        return quizzes.get(uuid);
     }
 
     public QuizEvent getCurrentQuizEvent() {
@@ -65,10 +56,9 @@ public class QuizManager {
             return;
         }
 
-        List<UUID> collect = new ArrayList<>(quizzes.keySet());
-        UUID uuid = collect.get(random.nextInt(quizzes.size()));
+        Quiz quiz = quizzes.get(random.nextInt(quizzes.size()));
 
-        currentQuizEvent = new QuizEvent(uuid, this);
+        currentQuizEvent = new QuizEvent(quiz, this);
         new QuizExpireTask(this);
 
         Bukkit.broadcastMessage(ConfigManager.getMessageConfig("messages.event_started"));

@@ -9,13 +9,13 @@ import java.util.UUID;
 
 public class QuizEvent {
 
-    private UUID curentQuiz;
+    private Quiz currentQuiz;
     private Set<String> playersWhoAnswered;
 
     private QuizManager quizManager;
 
-    public QuizEvent(UUID curentQuiz, QuizManager quizManager) {
-        this.curentQuiz = curentQuiz;
+    public QuizEvent(Quiz currentQuiz, QuizManager quizManager) {
+        this.currentQuiz = currentQuiz;
         this.quizManager = quizManager;
         this.playersWhoAnswered = new HashSet<>();
     }
@@ -29,6 +29,6 @@ public class QuizEvent {
     }
 
     public Quiz getQuiz() {
-        return quizManager.get(curentQuiz);
+        return currentQuiz;
     }
 }
