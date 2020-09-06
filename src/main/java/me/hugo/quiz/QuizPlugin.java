@@ -25,14 +25,12 @@ public final class QuizPlugin extends JavaPlugin {
         }
 
         quizManager = new QuizManager();
-        quizManager.loadQuizzes();
 
         registerEvents();
         registerCommands();
     }
 
     private void loadConfig() {
-        getConfig().options().copyDefaults(false);
         saveDefaultConfig();
     }
 

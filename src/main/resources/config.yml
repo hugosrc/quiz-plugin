@@ -11,7 +11,6 @@ messages:
   event_going_on: '&eO evento quiz já está acontecendo!'
   command_quiz_start: '/quiz iniciar - &epara iniciar o evento'
   command_quiz_answer: '/quiz responder - &epara participar do evento'
-  command_quiz_reload: '/quiz reload - &erecarrega as configurações do plugin'
   event_not_happening: '&aO evento Quiz não está acontecendo!'
   already_answered: '&eVocê já respondeu um vez e não pode responder novamente!'
   has_no_permission: '&cVocê não possui permissão para utilizar esse commando!'

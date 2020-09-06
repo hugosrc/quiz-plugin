@@ -25,7 +25,6 @@ public class QuizCommand implements CommandExecutor {
 
             if (sender.hasPermission("staff.servername.quiz")) {
                 sender.sendMessage(ConfigManager.getMessageConfig("messages.command_quiz_start"));
-                sender.sendMessage(ConfigManager.getMessageConfig("messages.command_quiz_reload"));
             }
 
             return false;

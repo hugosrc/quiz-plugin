@@ -22,6 +22,7 @@ public class QuizManager {
 
     public QuizManager() {
         random = new Random();
+        loadQuizzes();
     }
 
     public void loadQuizzes() {
