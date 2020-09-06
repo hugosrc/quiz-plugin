@@ -1,0 +1,8 @@
+name: Quiz
+version: ${project.version}
+main: me.hugo.quiz.QuizPlugin
+author: HugoSr
+depend: ["Vault"]
+commands:
+  quiz:
+    description: Perform Actions of the Quiz Event

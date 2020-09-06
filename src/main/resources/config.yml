@@ -1,0 +1,32 @@
+#================================
+#====== Quiz Plugin Config ======
+#================================
+
+# Messagens enviadas ao jogador
+messages:
+  event_started: '&aO evento Quiz começou! Para participar digite: /quiz responder'
+  event_ended: '&aO evento Quiz foi finalizado!'
+  wrong_answer: '&eVocê errou! Tente no próximo evento!'
+  right_answer: '&aParabens você acertou e recebeu '
+  event_going_on: '&eO evento quiz já está acontecendo!'
+  command_quiz_start: '/quiz iniciar - &epara iniciar o evento'
+  command_quiz_answer: '/quiz responder - &epara participar do evento'
+  command_quiz_reload: '/quiz reload - &erecarrega as configurações do plugin'
+  event_not_happening: '&aO evento Quiz não está acontecendo!'
+  already_answered: '&eVocê já respondeu um vez e não pode responder novamente!'
+  has_no_permission: '&cVocê não possui permissão para utilizar esse commando!'
+
+# Tempo para finalizar o evento, obs: colocar em segundos
+time: 60
+
+# Perguntas e respostas
+quizzes:
+  quiz1:
+    question: 'Em qual ano o minecraft foi lançado?'
+    answers:
+      - 2000
+      - 2005
+      - 2009
+      - 2014
+    correct: 3
+    reward: 10000
