@@ -4,12 +4,10 @@ import me.hugo.quiz.QuizPlugin;
 import me.hugo.quiz.managers.QuizManager;
 import me.hugo.quiz.utils.config.ConfigManager;
 import org.bukkit.Bukkit;
-import org.bukkit.scheduler.BukkitTask;
 
 public class QuizExpireTask {
 
     private QuizManager quizManager;
-    private BukkitTask quizTask;
 
     public QuizExpireTask(QuizManager quizManager) {
         this.quizManager = quizManager;
@@ -20,19 +18,12 @@ public class QuizExpireTask {
     }
 
     private void expiresIn(long time) {
-        quizTask = Bukkit.getScheduler().runTaskTimerAsynchronously(QuizPlugin.getInstance(), new Runnable() {
-
+        Bukkit.getScheduler().runTaskLater(QuizPlugin.getInstance(), new Runnable() {
             @Override
             public void run() {
-                finishEvent();
+                quizManager.finish();
             }
-
-        }, time, 20L);
-    }
-
-    private void finishEvent() {
-        quizManager.finish();
-        Bukkit.getScheduler().cancelTask(quizTask.getTaskId());
+        }, time);
     }
 
 }
